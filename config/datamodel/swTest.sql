@@ -432,3 +432,47 @@ VALUES
 /*****************************************
 * Start User Defined Procedures */
 
+   /* Procedure to get all data */
+    DROP PROCEDURE GET_ALL_DATA;
+
+    DELIMITER --
+    create procedure GET_ALL_DATA() 
+    BEGIN
+        select * from swTest.sweetwater_test
+        ORDER BY orderid;
+    END --
+    DELIMITER ;
+
+
+    /* Procedure to update the shipDate in MySQL */
+    DELIMITER --      
+    create procedure MYSQL_UPDATE_SHIPDATE() 
+    BEGIN
+        UPDATE swTest.sweetwater_test
+		SET shipdate_expected = SUBSTRING_INDEX(comments,'Expected Ship Date: ',-1)
+		WHERE comments LIKE '%Expected Ship Date: %';
+    END --
+    DELIMITER ;
+
+    /* Procedure to REVERT the shipDate in MySQL */
+    DELIMITER --      
+    create procedure MYSQL_REVERT_SHIPDATE() 
+    BEGIN
+        UPDATE swTest.sweetwater_test
+		SET shipdate_expected = '0000-00-00 00:00:00';
+    END --
+    DELIMITER ;
+    
+    /* Procedure to update the shipdate via PHP */
+    DELIMITER --
+    create procedure PHP_UPDATE_SHIPDATE(
+        in orderNumber varchar(20),
+        in dateInput varchar(20)) 
+        LANGUAGE SQL
+        READS SQL DATA
+        BEGIN
+        UPDATE swTest.sweetwater_test
+        SET shipdate_expected = dateInput
+        where orderid = orderNumber;
+        END;-- 
+    DELIMITER ;

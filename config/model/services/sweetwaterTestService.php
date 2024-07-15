@@ -21,5 +21,37 @@ class SweetwaterTestService {
 	}
 
 
+    function mysqlUpdateShipdate(){
+        if (isset($this->db) && $this->db->execute(
+                "call MYSQL_UPDATE_SHIPDATE()",
+            array())) {
+            return $this->db->fetch_objects(SweetwaterTest::class_name);
+        }
+        
+        return false;
+    }
+
+    function mysqlRevertShipdate(){
+        if (isset($this->db) && $this->db->execute(
+                "call MYSQL_REVERT_SHIPDATE()",
+            array())) {
+            return $this->db->fetch_objects(SweetwaterTest::class_name);
+        }
+        
+        return false;
+    }
+
+    function phpUpdateShipdate($order, $date){
+        if (isset($this->db) && $this->db->execute(
+            "call PHP_UPDATE_SHIPDATE(?,?)",
+        array($order, $date))) {
+        return $this->db->fetch_objects(SweetwaterTest::class_name);
+    }
+    
+    return false;
+
+    }
+
+
 }
 ?>
