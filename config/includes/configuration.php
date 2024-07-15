@@ -18,7 +18,6 @@ define('DATA_DIRECTORY', CONFIG_ROOT . '/model/data');
 define('SERVICES_DIRECTORY', CONFIG_ROOT . '/model/services');
     $debugArray['SERVICES_DIRECTORY'] = SERVICES_DIRECTORY;
 
-
     
 /********************************************************************
      */
