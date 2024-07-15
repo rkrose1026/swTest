@@ -9,6 +9,9 @@ define('SERVER_ROOT', $_SERVER["DOCUMENT_ROOT"]);
 define('CONFIG_ROOT', SERVER_ROOT . "/../../config");
     $debugArray['CONFIG_ROOT'] = CONFIG_ROOT;
 
+define('INCLUDES_DIRECTORY', __DIR__);
+    $debugArray['INCLUDES_DIRECTORY'] = INCLUDES_DIRECTORY;
+
 define('DATA_DIRECTORY', CONFIG_ROOT . '/model/data');
     $debugArray['DATA_DIRECTORY'] = DATA_DIRECTORY;
 
