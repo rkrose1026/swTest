@@ -1,6 +1,6 @@
 <?php
 
-$debugMode = 1;//0 off, anything else on
+$debugMode = 0;//0 off, anything else on
 $debugArray = array();
 
 define('SERVER_ROOT', $_SERVER["DOCUMENT_ROOT"]);
@@ -9,12 +9,10 @@ define('SERVER_ROOT', $_SERVER["DOCUMENT_ROOT"]);
 define('CONFIG_ROOT', SERVER_ROOT . "/../../config");
     $debugArray['CONFIG_ROOT'] = CONFIG_ROOT;
 
-
-
-define('DATA_DIRECTORY', CONFIG_ROOT . '/model/data'); //TODO REMOVE Formerly CUSTOMER_DATA_DIRECTORY
+define('DATA_DIRECTORY', CONFIG_ROOT . '/model/data');
     $debugArray['DATA_DIRECTORY'] = DATA_DIRECTORY;
 
-define('SERVICES_DIRECTORY', CONFIG_ROOT . '/model/services');//TODO REMOVE Formerly CUSTOMER_SERVICES_DIRECTORY
+define('SERVICES_DIRECTORY', CONFIG_ROOT . '/model/services');
     $debugArray['SERVICES_DIRECTORY'] = SERVICES_DIRECTORY;
 
 
