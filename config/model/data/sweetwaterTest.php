@@ -8,6 +8,7 @@ class SweetwaterTest extends DbDataModel {
     protected $orderid;
     protected $comments;
     protected $shipdateExpected;
+    protected $grouping;
 
     public function getOrderid() {
         return $this->orderid;
@@ -32,6 +33,15 @@ class SweetwaterTest extends DbDataModel {
     public function setShipdateExpected($shipdateExpected) {
         $this->shipdateExpected = $shipdateExpected;
     }
+
+    public function getGrouping() {
+        return $this->grouping;
+    }
+
+    public function setGrouping($grouping) {
+        $this->grouping = $grouping;
+    }
+
 
 }
 ?>
